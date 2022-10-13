@@ -1,4 +1,4 @@
-package com.example.sachetan.ui
+package com.example.sachetan.ui.onboarding
 
 import android.util.Log
 import android.widget.Toast

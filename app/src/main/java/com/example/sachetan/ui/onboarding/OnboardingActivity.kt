@@ -1,4 +1,4 @@
-package com.example.sachetan.ui
+package com.example.sachetan.ui.onboarding
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
