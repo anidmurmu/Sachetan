@@ -12,7 +12,7 @@ data class UserModel(
     @SerializedName("phone_num")
     val phoneNum: String,
 
-    @SerializedName("email")
+    @SerializedName("email_id")
     val emailId: String,
 
     @SerializedName("age")
@@ -25,5 +25,5 @@ data class UserModel(
     val emergencyPhoneNum: String,
 
     @SerializedName("is_professional")
-    val isProfessional: Boolean
+    val isProfessional: Boolean = false
 )

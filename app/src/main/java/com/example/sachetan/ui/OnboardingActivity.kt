@@ -3,7 +3,11 @@ package com.example.sachetan.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.sachetan.databinding.ActivityOnboardingBinding
 import com.example.sachetan.domain.model.user.UserModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +29,16 @@ class OnboardingActivity : AppCompatActivity() {
 
         binding.btnSubmit.setOnClickListener {
             val userDetails = getUserDetails(binding)
-            Log.d("apple", userDetails.toString())
+            viewModel.saveUserInfo(userDetails)
+            Log.d("apple4", userDetails.toString())
+        }
+
+        lifecycleScope.launchWhenResumed {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.toast.collect {
+                    Toast.makeText(this@OnboardingActivity, it, Toast.LENGTH_SHORT)
+                }
+            }
         }
     }
 

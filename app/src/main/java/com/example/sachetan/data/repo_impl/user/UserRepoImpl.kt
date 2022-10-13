@@ -4,6 +4,7 @@ import com.example.sachetan.data.remote.service.user.UserServiceApi
 import com.example.sachetan.domain.model.user.UserModel
 import com.example.sachetan.domain.repo.user.UserRepo
 import com.google.gson.Gson
+import com.google.gson.JsonObject
 import javax.inject.Inject
 
 class UserRepoImpl @Inject constructor(
@@ -18,5 +19,9 @@ class UserRepoImpl @Inject constructor(
             UserModel::class.java
         )
         return parsedResp
+    }
+
+    override suspend fun saveUserInfo(userModel: UserModel) {
+        userServiceApi.saveUserInfo(userModel)
     }
 }

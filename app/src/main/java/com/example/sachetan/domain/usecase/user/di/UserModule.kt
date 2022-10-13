@@ -3,6 +3,8 @@ package com.example.sachetan.domain.usecase.user.di
 import com.example.sachetan.domain.repo.user.UserRepo
 import com.example.sachetan.domain.usecase.user.GetUseInfoUseCaseImpl
 import com.example.sachetan.domain.usecase.user.GetUserInfoUseCase
+import com.example.sachetan.domain.usecase.user.SaveUserInfoUseCase
+import com.example.sachetan.domain.usecase.user.SaveUserInfoUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,5 +21,13 @@ class UserModule {
         userRepo: UserRepo
     ): GetUserInfoUseCase {
         return GetUseInfoUseCaseImpl(userRepo)
+    }
+
+    @Provides
+    @ActivityRetainedScoped
+    fun provideSaveUserInfoUseCase(
+        userRepo: UserRepo
+    ): SaveUserInfoUseCase {
+        return SaveUserInfoUseCaseImpl(userRepo)
     }
 }
