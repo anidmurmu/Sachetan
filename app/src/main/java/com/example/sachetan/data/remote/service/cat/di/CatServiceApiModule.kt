@@ -1,6 +1,6 @@
-package com.example.sachetan.data.remote.service.di
+package com.example.sachetan.data.remote.service.cat.di
 
-import com.example.sachetan.data.remote.service.CatServiceApi
+import com.example.sachetan.data.remote.service.cat.CatServiceApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

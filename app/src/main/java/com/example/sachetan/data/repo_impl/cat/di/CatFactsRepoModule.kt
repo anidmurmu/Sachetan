@@ -1,8 +1,8 @@
-package com.example.sachetan.data.repo_impl.di
+package com.example.sachetan.data.repo_impl.cat.di
 
-import com.example.sachetan.data.remote.service.CatServiceApi
-import com.example.sachetan.data.repo_impl.CatFactsRepoImpl
-import com.example.sachetan.domain.repo.CatFactsRepo
+import com.example.sachetan.data.remote.service.cat.CatServiceApi
+import com.example.sachetan.data.repo_impl.cat.CatFactsRepoImpl
+import com.example.sachetan.domain.repo.cat.CatFactsRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

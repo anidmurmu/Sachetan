@@ -1,4 +1,4 @@
-package com.example.sachetan.domain.model
+package com.example.sachetan.domain.model.cat
 
 import com.google.gson.annotations.SerializedName
 

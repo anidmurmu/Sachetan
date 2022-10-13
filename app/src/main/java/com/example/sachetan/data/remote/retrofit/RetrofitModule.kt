@@ -12,6 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 const val BASE_URL = "https://catfact.ninja"
+const val BASE_URL_SACHETAN = "https://mentalhealth.umakantyadav1.repl.co"
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -44,7 +45,7 @@ object RetrofitModule {
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BASE_URL_SACHETAN)
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
             .build()

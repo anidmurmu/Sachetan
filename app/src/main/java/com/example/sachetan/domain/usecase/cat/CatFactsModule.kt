@@ -1,6 +1,6 @@
-package com.example.sachetan.domain.usecase
+package com.example.sachetan.domain.usecase.cat
 
-import com.example.sachetan.domain.repo.CatFactsRepo
+import com.example.sachetan.domain.repo.cat.CatFactsRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

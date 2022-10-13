@@ -1,7 +1,7 @@
-package com.example.sachetan.domain.usecase
+package com.example.sachetan.domain.usecase.cat
 
-import com.example.sachetan.domain.model.CatModel
-import com.example.sachetan.domain.repo.CatFactsRepo
+import com.example.sachetan.domain.model.cat.CatModel
+import com.example.sachetan.domain.repo.cat.CatFactsRepo
 import javax.inject.Inject
 
 interface GetRandomCatFactsUseCase {
