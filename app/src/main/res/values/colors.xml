@@ -12,4 +12,5 @@
     <color name="selected_icon_color">#096ff7</color>
     <color name="un_selected_icon_color">#e6e6e6</color>
     <color name="border_color">#e4e4e4</color>
+    <color name="problem_btn_color">#096ff7</color>
 </resources>

@@ -9,4 +9,9 @@
     <string name="emergency_contact_phone">Emergency Contact Number</string>
     <string name="btn_submit_text">Submit</string>
     <string name="cb_working_txt">Do you work as professional</string>
+    <string name="burnt_out_msg">Feeling Burnt Out</string>
+    <string name="stressed_msg">Feeling Stressed</string>
+    <string name="anxiety_msg">Manage Anxiety</string>
+    <string name="calm_msg">Be Calm</string>
+    <string name="something_msg">Something Else</string>
 </resources>

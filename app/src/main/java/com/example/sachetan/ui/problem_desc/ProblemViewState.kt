@@ -12,6 +12,12 @@ class ProblemViewState {
         const val ANXIETY_ID = 3
         const val CALM_ID = 4
         const val SOMETHING_ID = 5
+
+        const val BURNT_OUT_TXT = "Feeling"
+        const val STRESSED_TXT = 2
+        const val ANXIETY_TXT = 3
+        const val CALM_TXT = 4
+        const val SOMETHING_TXT = 5
     }
     val _burntOut: MutableStateFlow<Boolean> = MutableStateFlow(false)
     val burntOut: StateFlow<Boolean>

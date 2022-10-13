@@ -7,8 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -19,13 +18,15 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.sachetan.R
 import com.example.sachetan.ui.base_compose.units.BaseDpValues
 import com.example.sachetan.ui.base_compose.units.BasePadding
 
 @Composable
-fun ProblemDescriptionScreen(viewModel: ProblemDescriptionViewModel) {
+fun ProblemDescriptionScreen(viewModel: ProblemDescriptionViewModel,
+    onSubmit: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -33,11 +34,21 @@ fun ProblemDescriptionScreen(viewModel: ProblemDescriptionViewModel) {
             .padding(horizontal = BasePadding.Default),
         verticalArrangement = Arrangement.Center
     ) {
-        ProblemBurnOutItem("Feeling Burnt Out", viewModel, {}, Modifier)
-        ProblemStressedItem("Feeling Stressed", viewModel, {}, Modifier)
-        ProblemAnxietyItem("Manage Anxiety", viewModel, {}, Modifier)
-        ProblemCalmItem("Be Calm", viewModel, {}, Modifier)
-        ProblemSomethingItem("Something Else", viewModel, {}, Modifier)
+        ProblemBurnOutItem(stringResource(id = R.string.burnt_out_msg), viewModel, {}, Modifier)
+        ProblemStressedItem(stringResource(id = R.string.stressed_msg), viewModel, {}, Modifier)
+        ProblemAnxietyItem(stringResource(id = R.string.anxiety_msg), viewModel, {}, Modifier)
+        ProblemCalmItem(stringResource(id = R.string.calm_msg), viewModel, {}, Modifier)
+        ProblemSomethingItem(stringResource(id = R.string.something_msg), viewModel, {}, Modifier)
+        Button(onClick = { onSubmit.invoke() },
+            colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.problem_btn_color)),
+            modifier = Modifier
+                .padding(top = 32.dp)
+                .fillMaxWidth()
+                .height(BaseDpValues.ItemMinHeight),
+            shape = RoundedCornerShape(28.dp)) {
+            Text(text = "Continue",
+            color = Color.White)
+        }
     }
 }
 
