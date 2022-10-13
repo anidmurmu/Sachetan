@@ -8,4 +8,5 @@
     <string name="emergency_contact_name">Emergency Contact Name</string>
     <string name="emergency_contact_phone">Emergency Contact Number</string>
     <string name="btn_submit_text">Submit</string>
+    <string name="cb_working_txt">Do you work as professional</string>
 </resources>

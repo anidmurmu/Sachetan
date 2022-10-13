@@ -30,6 +30,7 @@ class OnboardingActivity : AppCompatActivity() {
         binding.btnSubmit.setOnClickListener {
             val userDetails = getUserDetails(binding)
             viewModel.saveUserInfo(userDetails)
+            clearFields(binding)
             Log.d("apple4", userDetails.toString())
         }
 
@@ -52,7 +53,7 @@ class OnboardingActivity : AppCompatActivity() {
         val age = binding.tietAge.text.toString()
         val emergencyName = binding.tietEmergencyName.text.toString()
         val emergencyPhoneNum = binding.tietEmergencyPhone.text.toString()
-        val isProfessional = true
+        val isProfessional = binding.cbIsProfessional.isChecked
 
         return UserModel(
             name = name,
@@ -65,4 +66,16 @@ class OnboardingActivity : AppCompatActivity() {
             isProfessional = isProfessional
         )
     }
+
+    private fun clearFields(binding: ActivityOnboardingBinding) {
+        binding.tietName.text?.clear()
+        binding.tietGender.text?.clear()
+        binding.tietPhone.text?.clear()
+        binding.tietEmail.text?.clear()
+        binding.tietAge.text?.clear()
+        binding.tietEmergencyName.text?.clear()
+        binding.tietEmergencyPhone.text?.clear()
+        binding.cbIsProfessional.isChecked = false
+    }
+
 }
