@@ -1,5 +1,7 @@
 package com.example.sachetan.ui.onboarding
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,16 +15,37 @@ import com.example.sachetan.domain.model.user.UserModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class OnboardingActivity : AppCompatActivity() {
+class OnBoardingActivity : AppCompatActivity() {
 
     private val viewModel: OnboardingViewModel by viewModels()
     private lateinit var binding: ActivityOnboardingBinding
+    private var selectedList: List<String>? = null
+
+    companion object {
+        const val SELECTED_LIST = "selected_list"
+        fun startActivity(context: Context, list: ArrayList<String>) {
+            val bundle = Bundle()
+            bundle.putStringArrayList(SELECTED_LIST, list)
+            //val intent = Intent().putExtras(bundle)
+            val intent = Intent(context, OnBoardingActivity::class.java)
+            intent.putExtras(bundle)
+            context.startActivity(intent)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        //val selectedList = intent.getStringArrayListExtra(SELECTED_LIST)
+        val bundle: Bundle? = intent.extras
+        //val bundle1 =
+        if (bundle != null) {
+            selectedList =  bundle.getStringArrayList(SELECTED_LIST)
+            Log.d("apple44", selectedList.toString())
+        }
 
         //viewModel.getRandomCatFacts()
         viewModel.getUserInfo()
@@ -37,7 +60,7 @@ class OnboardingActivity : AppCompatActivity() {
         lifecycleScope.launchWhenResumed {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.toast.collect {
-                    Toast.makeText(this@OnboardingActivity, it, Toast.LENGTH_SHORT)
+                    Toast.makeText(this@OnBoardingActivity, it, Toast.LENGTH_SHORT)
                 }
             }
         }
@@ -54,6 +77,7 @@ class OnboardingActivity : AppCompatActivity() {
         val emergencyName = binding.tietEmergencyName.text.toString()
         val emergencyPhoneNum = binding.tietEmergencyPhone.text.toString()
         val isProfessional = binding.cbIsProfessional.isChecked
+        val selectedList = selectedList
 
         return UserModel(
             name = name,
@@ -63,7 +87,8 @@ class OnboardingActivity : AppCompatActivity() {
             age = age,
             emergencyName = emergencyName,
             emergencyPhoneNum = emergencyPhoneNum,
-            isProfessional = isProfessional
+            isProfessional = isProfessional,
+            selectedList = selectedList
         )
     }
 

@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import com.example.sachetan.R
+import com.example.sachetan.ui.onboarding.OnBoardingActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,12 +21,13 @@ class ProblemDescriptionActivity : ComponentActivity() {
             ProblemDescriptionScreen(viewModel, onSubmit = {
                 val list = getSelectedList()
                 Log.d("apple12", list.toString())
+                OnBoardingActivity.startActivity(this@ProblemDescriptionActivity, list)
             })
         }
     }
     
-    private fun getSelectedList(): List<String> {
-        val list = mutableListOf<String>()
+    private fun getSelectedList(): ArrayList<String> {
+        val list = arrayListOf<String>()
         if(viewModel.problemViewState.burntOut.value) {
             list.add(resources.getString(R.string.burnt_out_msg))
         }

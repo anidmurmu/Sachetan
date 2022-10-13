@@ -19,7 +19,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.sachetan.R
 import com.example.sachetan.ui.base_compose.units.BaseDpValues
 import com.example.sachetan.ui.base_compose.units.BasePadding
@@ -32,8 +34,21 @@ fun ProblemDescriptionScreen(viewModel: ProblemDescriptionViewModel,
             .fillMaxSize()
             .background(Color.White)
             .padding(horizontal = BasePadding.Default),
-        verticalArrangement = Arrangement.Center
     ) {
+        Text(text = "What's on you mind?",
+            color = Color.Black,
+            fontSize = 32.sp,
+            fontFamily = FontFamily.SansSerif,
+        modifier = Modifier
+            .padding(top = 48.dp)
+            .wrapContentWidth()
+            .align(alignment = Alignment.CenterHorizontally))
+        Text(text = "I want to..",
+            color = colorResource(id = R.color.problem_sub_title_color),
+            modifier = Modifier
+                .padding(top = 16.dp)
+                .wrapContentWidth()
+                .align(alignment = Alignment.CenterHorizontally))
         ProblemBurnOutItem(stringResource(id = R.string.burnt_out_msg), viewModel, {}, Modifier)
         ProblemStressedItem(stringResource(id = R.string.stressed_msg), viewModel, {}, Modifier)
         ProblemAnxietyItem(stringResource(id = R.string.anxiety_msg), viewModel, {}, Modifier)

@@ -25,5 +25,8 @@ data class UserModel(
     val emergencyPhoneNum: String,
 
     @SerializedName("is_professional")
-    val isProfessional: Boolean = false
+    val isProfessional: Boolean = false,
+
+    @SerializedName("selected_list")
+    val selectedList: List<String>?,
 )

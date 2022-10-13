@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Sachetan"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ui.onboarding.OnboardingActivity"
+            android:name=".ui.onboarding.OnBoardingActivity"
             android:exported="true">
             <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
